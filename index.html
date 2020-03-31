@@ -1,0 +1,149 @@
+<!-- https://www.w3schools.com/bootstrap4/default.asp -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Privacy Screen</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <header>
+       <nav id="container">
+         <span class="toggleBars" id="togMenu"><i class="fas fa-bars "></i></span>
+           <ul class="topBar" id="js-menu">
+               <li><a href="#home">Home</a></li>
+               <li><a href="#background">About</a></li>
+               <li><a href="#approach">Uses</a></li>
+               <li><a href="#model">Model</a></li>
+               <li><a href="#testimonials">Testimonials</a></li>
+               <li><a href="#helpout">Support</a></li>
+               <li><a href="#team">Team</a></li>
+           </ul>
+       </nav>
+   </header>
+
+    <section id="home">
+        <div class="coverImage">
+            <div class="overlay">
+                <h1 class="coverTitle">FairAir</h1>
+                <p class="coverCaption">Filling the gaps in air pollution monitoring</p>
+                <a href="http://ec2-34-217-122-20.us-west-2.compute.amazonaws.com:8083"><button id="coverBtn">See the Map</button></a>
+            </div>
+            <div>
+              <p class="picCredit">Richmond Chevron oil refinery, 2012. Photo via Flickr Creative Commons.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="background">
+
+        <h1 class="introTitle">The Big Picture</h1>
+		<h2 class="introGrab">4 million people die annually due to outdoor air pollution</h2>
+        <p class="introDetails">We can push back on polluters with better air quality monitoring. The governent
+			often places its sensors away from pollution sources. With the price of sensors falling, community groups
+			and residents are starting to buy their own from companies like PurpleAir.com. So far, most sensors wind
+			up in wealthier neighborhoods that face less pollution. Our tool aims to change this.
+		</p>
+		<h2 class="introGrab">FairAir predicts which areas on a map face the most air pollution and recommends the best place
+			to put new sensors.</h2>
+		<p class="introDetails">
+			Optimal placement of sensors ensures: <br>
+			* disadvantaged communities have access to air quality data, <br>
+			* improves air quality models for everyone,<br>
+			* saves money from being wasted on redundant sensors.<br>
+		</p>
+    </section>
+
+    <section id="approach">
+        <h1 class="approachTitle">Use Cases</h1>
+        <div id="approachContainer">
+            <div class="approachDivs">
+				<h3>Activists</h3>
+                <hr />
+                <p>
+                    Community advocates can use FairAir to help make a case to donors that their community needs sensors. The tool can also help
+					establish a fair way to place the sensors, focusing them on the areas most likely to be impacted by air pollution.
+                </p>
+            </div>
+            <div class="approachDivs">
+                <h3>Donors</h3>
+                <hr />
+                <p>
+                    FairAir can help foundations, governments, and others who donate air pollution sensors to identify the communities
+					most in need of air quality monitoring. We base our recommendations on where we predict air pollution to be the worst
+					and distance from other sensors.
+                </p>
+            </div>
+            <div class="approachDivs">
+                <h3>Residents</h3>
+                <hr />
+                <p>
+					Live far from a sensor and can't afford one? FairAir offers a free prediction of the air quality in your neighborhood using
+					pollution, weather, and topographic data. No model is perfect, and ours is improved when more sensors are placed optimally.
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="model">
+        <h1 class="introTitle">How It Works</h1>
+        <p class="modelDetails">
+		Policy Screen uses natural language processing and machine learning to assess a privacy policy’s compliance with the California Consumer Privacy Act (CCPA). The tool focuses on one specific aspect of the CCPA: the user’s right to request deletion of his/her personal information.
+		</p>
+		<p class="modelDetails">
+      Many privacy policies are lengthy, and the specific subsection addressing a user’s right to request deletion makes up a small percentage of the overall text. Policy Screen leverages an inventory of 200+ online privacy policies and uses these inputs to extract the subsection most pertinent to the user’s right to request deletion. This subsection is then fed to a Support Vector Machine (SVM) model in order to predict whether the extracted text is compliant with the CCPA’s deletion requirements.
+		</p>
+		<p class="modelDetails">
+		The end user is able to view the specific text that was identified as being most pertinent to the user’s right to request deletion, as well as our model’s predicted compliance.
+		</p>
+    </section>
+
+    <section id="resources">
+        <h1 class="introTitle">Resources</h1>
+        <p class="introDetails">
+		If you're impacted by dirty air, organize with your neighbors, community, and local groups to fight for your right to clean air. Get involved with local organizations such as:<br>
+		<ul>
+  			<li><a id="link" href="http://www.cbecal.org/">Communities for a Better Environment</a></li>
+  			<li>Tea</li>
+  			<li>Milk</li>
+		</ul>
+		</p>
+	</section>
+
+    <section id="team">
+		<h2 class="teamHeader">The Team</h2>
+    <p>We created the Privacy Screen webtool for our <a id="link" href="https://www.ischool.berkeley.edu/courses/datasci/210">Capstone</a> project over the course of the <a id="link" href="https://www.ischool.berkeley.edu/programs/mids/capstone/2020a-spring">Spring 2020 term</a>, completing our journeys through the UC Berkeley <a id="link" href="https://datascience.berkeley.edu/academics/">Master of Information and Data Science</a> (MIDS) program.</p>
+        <div id="teamContainer">
+            <div class="tMateContainer">
+              <img src="https://www.ischool.berkeley.edu/sites/default/files/styles/profile_photo/public/profile_pictures/mids_photo.png"/>
+              <a id="link" href="https://www.linkedin.com/in/alexander-dessouky-468b82bb/">Alex Dessouky</a>
+            </div>
+            <div class="tMateContainer">
+              <img src="https://www.ischool.berkeley.edu/sites/default/files/styles/profile_photo/public/profile_pictures/p1_gb51619.jpg"/>
+              <a id="link" href="http://www.linkedin.com/in/steve-sanders">Steve Sanders</a>
+            </div>
+            <div class="tMateContainer">
+              <img src="https://www.ischool.berkeley.edu/sites/default/files/styles/fullscreen/public/profile_pictures/90_0.jpeg"/>
+              <a id="link" href="https://www.linkedin.com/in/jason-tuenge-bbb5a069/">Jason Tuenge</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer">
+
+<!-- https://www.freecodecamp.org/news/build-a-bootstrap-form-with-recaptcha-and-php-backend-for-emails-in-30-minutes-17964a374819/ -->
+
+
+    </footer>
+    <p>We would appreciate any feedback, which can be directed to: privacy (dot) screen (at) lists (dot) berkeley (dot) edu. But first see our Privacy Policy, of course!</p>
+    <script src="./website/script.js" type="text/javascript"></script>
+
+</body>
+</html>
