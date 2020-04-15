@@ -9,46 +9,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <style>
-  body {
-    font: 20px Montserrat, sans-serif;
-    line-height: 1.8;
-    color: #f5f6f7;
-  }
-  p {font-size: 16px;}
-  .margin {margin-bottom: 45px;}
-  .bg-gray {
-    background-color: #474e5d; /* Dark Blue */
-    color: #ffffff;
-  }
-  .bg-white {
-    background-color: #ffffff; /* White */
-    color: #555555;
-  }
-  .bg-black {
-    background-color: #2f2f2f; /* Black Gray */
-    color: #fff;
-  }
-  .container-fluid {
-    padding-top: 70px;
-    padding-bottom: 70px;
-  }
-  .navbar {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border: 0;
-    border-radius: 0;
-    margin-bottom: 0;
-    font-size: 12px;
-    letter-spacing: 5px;
-  }
-  .navbar-nav  li a:hover {
-    color: #1abc9c !important;
-  }
-  </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="ps.css" type="text/css">
+  <!-- <style>
+  </style> -->
 </head>
 <body>
 
@@ -66,6 +30,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#problem">PROBLEM</a></li>
         <li><a href="#solution">SOLUTION</a></li>
+        <li><a href="#terms">TERMS</a></li>
         <li><a href="#team">TEAM</a></li>
       </ul>
     </div>
@@ -73,43 +38,54 @@
 </nav>
 
 <section id="problem">
-  <div class="container-fluid bg-gray text-center">
+  <div class="container-fluid bg-dark text-left">
     <h3 class="margin">The Problem</h3>
-    <p>Do you ever read the privacy policies for websites you visit or apps you use? In spite of the potential risks we face as companies collect and share our personal data, <a href="https://www.pewresearch.org/internet/2019/11/15/americans-and-privacy-concerned-confused-and-feeling-lack-of-control-over-their-personal-information">only 1 in 5 Americans say they always or often read these obscure documents</a>.</p>
-    <img src="logo.png" style="display:inline" alt="missing">
+    <p>Do you ever read the privacy policies for websites you visit or apps you use? If not, you're hardly alone. Privacy policies are often lengthy and difficult to interpret, and <a href="https://www.pewresearch.org/internet/2019/11/15/americans-and-privacy-concerned-confused-and-feeling-lack-of-control-over-their-personal-information">only 1 in 5 Americans</a> say they always or often read these obscure documents.</p>
+    <p>This is problematic because collection and sharing of personal data by companies poses risks. Abuse of personal information has become <a href="https://www.wired.com/story/cambridge-analytica-facebook-privacy-awakening/">commonplace</a>, sometimes with dire consequences. Fortunately, consumers are taking notice; for example, <a href="https://www.pewresearch.org/fact-tank/2020/04/14/half-of-americans-have-decided-not-to-use-a-product-or-service-because-of-privacy-concerns/">a recent survey</a> showed half of Americans have decided not to use a product or service because of privacy concerns.</p>
+    <p>Multiple states have introduced legislation to protect consumer privacy. The <a href="https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&amp;part=4.&amp;lawCode=CIV&amp;title=1.81.5.">California Consumer Privacy Act</a> (CCPA) was published in June 2018, and because effective in January 2020. However, <a href="https://www.emarketer.com/content/with-ccpa-days-away-many-companies-are-still-not-compliant">only half</a> of U.S. security professionals surveyed in October 2019 said their firms were already compliant or would be by the end of the year. The CCPA is itself lengthy, difficult, and open to interpretation -- and there are no existing tools for consumers that assess compliance.</p>
+    <p>Our mission for this castone project has been to protect personal information by helping consumers assess privacy policies. We believe that if the 80% of Americans who typically do not review privacy policies began doing so, these empowered consumers would demand better privacy policies.</p>
   </div>
 </section>
 
 <section id="solution">
-  <div class="container-fluid bg-white text-center">
+  <div class="container-fluid bg-light text-left">
     <h3 class="margin">Our Solution</h3>
-    <p>Privacy Screen is a webtool that uses natural language processing and machine learning to assess a submitted privacy policy’s compliance with the new <a href="https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&amp;part=4.&amp;lawCode=CIV&amp;title=1.81.5.">California Consumer Privacy Act</a> (CCPA). The tool focuses on one key element of the CCPA: disclosing the user’s right to request deletion of their personal information.</p>
-    <p>Many privacy policies are lengthy, and the specific subsection addressing a user’s right to request deletion makes up a small percentage of the overall text. Policy Screen leverages an inventory of 200+ online privacy policies and uses these inputs to extract the subsection most pertinent to the user’s right to request deletion. This subsection is then fed to a Support Vector Machine (SVM) model in order to predict whether the extracted text is compliant with the CCPA’s deletion requirements.</p>
-    <p>After submitting a privacy policy, the user is presented with a simple assessment of compliance, accompanied by the specific portion of the text that was identified by the model as being most pertinent to the user’s right to request deletion. We hope you'll give <a href="http://ccpa-env.eba-fmagdcnc.us-east-2.elasticbeanstalk.com/">Privacy Screen</a> a try!</p>
+    <p>To achieve our mission, we developed <a href="http://ccpa-env.eba-fmagdcnc.us-east-2.elasticbeanstalk.com">Privacy Screen</a>, a web tool that uses natural language processing and machine learning to help consumers determine whether privacy policies allow them to request deletion of their personal information. We drew our inspiration from a key element of the CCPA, which is highlighted in the excerpt from <a href="https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5.">CA Civ Code § 1798.105(b)</a> below:</p>
+    <ul>
+      <li><mark>A business that collects personal information about consumers shall disclose</mark>, pursuant to subparagraph (A) of paragraph (5) of subdivision (a) of Section 1798.130, <mark>the consumer’s rights to request the deletion of the consumer’s personal information.</mark></li>
+    </ul>
+    <p>Lacking available prelabeled data to train and test our machine-learning model, we began by randomly sampling 400 URLs from the <a href="https://www.usableprivacy.org/data">MAPS Policies Dataset</a>. This yielded 307 usable and distinct English-language privacy policies, which we then labeled ourselves. The resulting dataset was moderately imbalanced, with 36% classified positive (i.e., user can request data deletion), and the remaining 64% being negative. We documented the procedures we developed and used on the <a href="method.html">Labeling Method</a> page of this project website.
+</p>
+    <p>Many privacy policies are lengthy, and the specific subsection addressing a user’s right to request deletion makes up a small percentage of the overall text. For positive policies, we also extracted the portion of the policy that indicated users can request deletion of their data. <a href="http://ccpa-env.eba-fmagdcnc.us-east-2.elasticbeanstalk.com">Privacy Screen</a> leverages these excerpts to extract the subsection most pertinent to the user’s right to request deletion. This subsection is then fed to a Support Vector Machine (SVM) model in order to predict whether the extracted text indicates the user can request deletion of their personal information.</p>
+    <p>After submitting a privacy policy, the user is presented with a simple assessment of compliance, accompanied by the specific portion of the text that was identified by the model as being most pertinent to the user’s right to request deletion. We hope you'll give <a href="http://ccpa-env.eba-fmagdcnc.us-east-2.elasticbeanstalk.com">Privacy Screen</a> a try!</p>
+    <br>
+    <a href="http://ccpa-env.eba-fmagdcnc.us-east-2.elasticbeanstalk.com"><img src="logo.png" width="297px" height="123px" /> </a>
+  </div>
+</section>
+
+<section id="terms">
+  <div class="container-fluid bg-dark text-left">
+    <h3 class="margin">Our Privacy Policy</h3>
+    <!-- If you edit the text below, make sure it still complies per the tool! -->
+    <p>We DO NOT store or share any data as you use <a href="http://ccpa-env.eba-fmagdcnc.us-east-2.elasticbeanstalk.com">Privacy Screen</a>. However, we DO acknowledge your right to request deletion of your personal data and information!</p>
   </div>
 </section>
 
 <section id="team">
-  <div class="container-fluid bg-gray text-center">
-    <h3 class="margin">The Team</h3><br>
-    <p>We created the Privacy Screen webtool for our <a id="link" href="https://www.ischool.berkeley.edu/courses/datasci/210">Capstone</a> project over the course of the <a id="link" href="https://www.ischool.berkeley.edu/programs/mids/capstone/2020a-spring">Spring 2020 term</a>, completing our journeys through the UC Berkeley <a id="link" href="https://datascience.berkeley.edu/academics/">Master of Information and Data Science</a> (MIDS) program.</p>
-    <p>We would appreciate any feedback, which can be submitted by emailing us at privacy (d<sub>&deg</sub>t) screen (at) lists (d<sub>&deg</sub>t) berkeley (d<sub>&deg</sub>t) edu.</p>
+  <div class="container-fluid bg-light text-left">
+    <h3 class="margin">The Team</h3>
+    <p>We created <a href="http://ccpa-env.eba-fmagdcnc.us-east-2.elasticbeanstalk.com">Privacy Screen</a> for our <a id="link" href="https://www.ischool.berkeley.edu/courses/datasci/210">Capstone</a> project over the course of the <a id="link" href="https://www.ischool.berkeley.edu/programs/mids/capstone/2020a-spring">Spring 2020</a> term, completing our journeys through the UC Berkeley <a id="link" href="https://datascience.berkeley.edu/academics/">Master of Information and Data Science</a> (MIDS) program. We would appreciate any feedback, which can be submitted by emailing us at privacy (d<sub>&deg</sub>t) screen (at) lists (d<sub>&deg</sub>t) berkeley (d<sub>&deg</sub>t) edu. Additional information can be found on the <a href="resources.html">Resources</a> page of this project website.</p>
+    <br>
     <div class="row">
-      <div class="col-sm-4">
-        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <img src="birds1.jpg" class="img-responsive margin" style="width:100%" alt="Image"> -->
+      <div class="col-sm-3">
         <img src="https://www.ischool.berkeley.edu/sites/default/files/styles/profile_photo/public/profile_pictures/mids_photo.png" class="img-responsive margin" style="width:100%" alt="(missing)"/>
         <a id="link" href="https://www.linkedin.com/in/alexander-dessouky-468b82bb/">Alex Dessouky</a>
       </div>
-      <div class="col-sm-4">
-        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <img src="birds2.jpg" class="img-responsive margin" style="width:100%" alt="Image"> -->
+      <div class="col-sm-3">
         <img src="https://www.ischool.berkeley.edu/sites/default/files/styles/profile_photo/public/profile_pictures/p1_gb51619.jpg" class="img-responsive margin" style="width:100%" alt="(missing)"/>
         <a id="link" href="http://www.linkedin.com/in/steve-sanders">Steve Sanders</a>
       </div>
-      <div class="col-sm-4">
-        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <img src="birds3.jpg" class="img-responsive margin" style="width:100%" alt="Image"> -->
+      <div class="col-sm-3">
         <img src="https://www.ischool.berkeley.edu/sites/default/files/styles/fullscreen/public/profile_pictures/90_0.jpeg" class="img-responsive margin" style="width:100%" alt="(missing)"/>
         <a id="link" href="https://www.linkedin.com/in/jason-tuenge-bbb5a069/">Jason Tuenge</a>
       </div>
@@ -117,12 +93,8 @@
   </div>
 </section>
 
-<section id="privacy">
-<footer class="container-fluid bg-black text-center">
-  <h3 class="margin">Our Privacy Policy</h3><br>
-  <!-- If you edit the text below, make sure it still complies per the tool! -->
-  <p>We do not collect, store, or share any data as you use the Privacy Screen tool. However, we do acknowledge your right to request deletion of such personal data or information!</p>
-</footer>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,141 @@
+<!-- Using Bootstrap 3 (rather than 4) to support IE8-9 -->
+<!-- https://www.w3schools.com/bootstrap/default.asp -->
+<!-- https://www.w3schools.com/bootstrap/bootstrap_theme_me.asp -->
+<!-- https://www.w3schools.com/howto/howto_js_navbar_sticky.asp -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Privacy Screen</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="ps.css" type="text/css">
+  <!-- <style>
+  </style> -->
+</head>
+
+<body>
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Privacy Screen</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#context">CONTEXT</a></li>
+        <li><a href="#urls">URLs</a></li>
+        <li><a href="#policies">POLICIES</a></li>
+        <li><a href="#labeling">LABELING</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section id="heading">
+  <div class="container-fluid bg-dark text-left">
+    <h1 class="margin">Labeling Method</h1>
+    <p>Following is a description of the method we developed and used to label data for the purposes of training and testing the machine-learning model that serves as the engine for <a href="http://ccpa-env.eba-fmagdcnc.us-east-2.elasticbeanstalk.com">Privacy Screen</a>.</p>
+  </div>
+</section>
+
+<section id="context">
+  <div class="container-fluid bg-light text-left">
+    <h3 class="margin">Context</h3>
+    <p>Inspired by highlighted portion of <a href="https://leginfo.legislature.ca.gov/faces/codes_displayText.xhtml?division=3.&part=4.&lawCode=CIV&title=1.81.5.">CA Civ Code § 1798.105(b)</a>:</p>
+    <ul>
+      <li><mark>A business that collects personal information about consumers shall disclose</mark>, pursuant to subparagraph (A) of paragraph (5) of subdivision (a) of Section 1798.130, <mark>the consumer’s rights to request the deletion of the consumer’s personal information.</mark></li>
+    </ul>
+    <p>Notes, caveats, nuances, etc.</p>
+    <ul>
+      <li>Not requiring disclosure of designated methods for submitting requests</li>
+      <li>Not requiring policy to use the word "right"</li>
+      <li>Definitions of "personal information" vary (e.g., may exclude location data), so this method assumes personal information is collected</li>
+      <li>Not attempting to interpret the often ambiguous exceptions listed in many policies (e.g., limitation to countries outside the U.S.)</li>
+      <li>Text is not easily extracted from some policies (e.g., some PDFs have no white space between words after copy-pasting from them)</li>
+    </ul>
+  </div>
+</section>
+
+<section id="urls">
+  <div class="container-fluid bg-dark text-left">
+    <h3 class="margin">Collecting policy URLs</h3>
+    <p>To gather a set of URLs for unique privacy policies:</p>
+    <ol>
+      <li>Ensure your browser has malware protection -- website certificates expire, and sites are sometimes compromised by other means.</li>
+      <li>Use the <a href="https://github.com/adessouky/w210_Capstone/tree/master/MAPS-partial">MAPS.ipynb Jupyter Notebook</a> to randomly sample a batch of URLs from the <a href="https://www.usableprivacy.org/data">MAPS dataset</a>.</li>
+      <li>Remove any duplicate URLs.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="policies">
+  <div class="container-fluid bg-light text-left">
+    <h3 class="margin">Collecting policies</h3>
+    <p>For each URL:</p>
+    <ol>
+      <li>Assign the URL its own unique identification number.</li>
+      <li>If the URL doesn't work at all (e.g., 404 error), try finding the Privacy Policy from the sub-domain's home/index page or via Google.</li>
+      <li>Verify the URL is for a privacy policy, which is written in English. Sometimes privacy policies are linked from within other documents like Terms & Conditions.</li>
+      <li>See if there's an updated policy elsewhere on the website. Updated policies are more likely to allow requests for deletion (improving balance).</li>
+      <li>See if there's a more complete policy elsewhere on the website. Updated policies are more likely to allow requests for deletion (improving balance).</li>
+      <li>Record the final URL.</li>
+      <li>Ensure that any "See More" fields collapsed by default are expanded.</li>
+      <li>Use browser's "inspector" tool to isolate the lowest-level "div" (or "body" if no div) element in HTML that encapsulates all relevant policy text (and hopefully nothing else).
+        <ol type='a'>
+          <li>Record its CSS selector (i.e., path/location in hierarchy).</li>
+          <li>Copy-paste the corresponding policy text into a TXT file dedicated to that URL.</li>
+        </ol>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section id="labeling">
+  <div class="container-fluid bg-dark text-left">
+    <h3 class="margin">Classifying policies</h3>
+    <p>For each privacy policy:</p>
+    <ol>
+      <li>Search sequentially for the following partial synonyms to generate a set of good hits, and then retain the best one:.
+        <ol type='a'>
+          <li>"delet" (as in delete or deletion)</li>
+          <li>"remov" (as in remove or removal)</li>
+          <li>"eras" (as in erase or erasure)</li>
+          <li>"forg" (as in forget or forgotten).</li>
+        </ol>
+      </li>
+      <li>Note that other synonyms (e.g., "destr" for destroy or destruction) are more commonly associated with other things like malicious deletion of data.</li>
+      <li>Note that "change" and its synonyms (e.g., amend, modify, alter) are NOT considered sufficient.</li>
+      <li>Verify that deletion isn't limited to:
+        <ol type='a'>
+          <li>"child" / "kid" / "minors" (also look for under, years, age, etc.)</li>
+          <li>"cooke".</li>
+        </ol>
+      </li>
+      <li>Verify that the user isn't required to delete their own info. For example, user may have limited access -- NOT sufficient if they can only delete contact info. Look for relevant keywords: request, send, ask, inquiry, query, have, obtain, contact, email, write, reach.</li>
+      <li>If all of the above are satisfied.
+        <ol type="a">
+          <li>Mark URL as 1 (otherwise 0)</li>
+          <li>Copy-paste only the text relevant to classification into a TXT file dedicated to that URL, capturing all such text between periods (may include section heading, bullets, semicolons, etc.).</li>
+        </ol>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<div class="container-fluid bg-light text-left">
+  <a href="index.html">Go back</a>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
